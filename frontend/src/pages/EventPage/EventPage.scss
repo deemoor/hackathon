@@ -79,6 +79,9 @@
   min-width: calc(360/1160*100%);
   margin: 0;
 }
+.column-right {
+  white-space: pre-line;
+}
 
 @media (max-width: 1099.98px) {
   .wrapper {

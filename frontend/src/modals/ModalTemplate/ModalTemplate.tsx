@@ -9,7 +9,6 @@ interface IModalTemplate {
 }
 
 export const ModalTemplate:FC<IModalTemplate> = ({ closeModal, children, positionUp }) => {
-
   const clickBackground = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) closeModal();
   };

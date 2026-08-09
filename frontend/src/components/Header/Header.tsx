@@ -17,6 +17,10 @@ export const Header = () => {
     navigate('/');
   }
 
+  const onClickMap = () => {
+    navigate('/#map');
+  }
+
   return (
     <header className='header'>
       <div className="wrapper">
@@ -25,9 +29,9 @@ export const Header = () => {
           <Link to='/next'>Ближайшие мероприятия</Link>
           <Link to='/past'>Прошедшие мероприятия</Link>
           <Link to='/contacts'>Контакты</Link>
-          <Link to='/' className='link-map'>Карта</Link>
+          <Link to='/#map' className='link-map'>Карта</Link>
         </nav>
-        <div className="header__map">
+        <div className="header__map" onClick={onClickMap}>
           <img className='header__map-icon' src={mapIcon} alt="map" />
           <p className='header__map-text'>Карта корпусов</p>
         </div>

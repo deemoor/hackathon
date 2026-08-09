@@ -1,9 +1,9 @@
 package com.example.Backend.model;
 
+import com.example.Backend.AppConstants;
 import com.example.Backend.entity.EventEntity;
 
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class EventDetailed {
         photo = entity.getPhoto();
         title = entity.getTitle();
         date = entity.getDate();
-        if(LocalDate.now().isAfter(date.toLocalDate()))
+        if(AppConstants.CURRENT_DATE.isAfter(date.toLocalDate()))
             this.page = "past";
         else
             this.page = "next";

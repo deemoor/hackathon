@@ -69,7 +69,7 @@ export const dateRequiredValidation = Yup.date()
 // описание (обязательное)
 export const descriptionRequiredValidation = Yup.string()
   .required('Обязательное поле')
-  .max(255, 'Максимум 255 символов');
+  .max(2000, 'Максимум 2000 символов');
 
 // результаты (необязательное)
 export const resultsValidation = Yup.string()

@@ -1,6 +1,8 @@
 import { IContact, IEvent } from "./interface";
 import { getEventsNextAction, getEventsPastAction } from "./store";
 
+export const CURRENT_DATE = new Date(2024, 3, 8);
+
 export const allFaculties = ['ФКП', 'ФИТУ', 'ИЭФ', 'ФКСИС', 'ФИБ', 'ФРЭ', 'ВФ'];
 export const allEventsTypes = ['Культурные', 'Образовательные', 'Спортивные'];
 export const allEventsVisits = ['Свободный вход', 'С регистрацией'];
@@ -8,38 +10,38 @@ export const allEventsVisits = ['Свободный вход', 'С регист�
 export const contacts: IContact[] = [
   {
     name: 'ФКП',
-    inst: 'https://www.youtube.com/watch?v=4xDzrJKXOOY',
-    telegram: '...'
+    inst: 'https://www.instagram.com/fcad_bsuir',
+    telegram: 'https://t.me/fcad_bsuir'
   },
   {
     name: 'ФКСИС',
-    inst: '...',
-    telegram: '...'
+    inst: 'https://www.instagram.com/fksis',
+    telegram: 'https://t.me/fcsan_by'
   },
   {
     name: 'ФИТУ',
-    inst: '...',
-    telegram: '...'
+    inst: 'https://www.instagram.com/fitu_bsuir',
+    telegram: 'https://t.me/fitu_bsuir'
   },
   {
     name: 'ФИБ',
-    inst: '...',
-    telegram: '...'
+    inst: 'https://www.instagram.com/fis_bsuir',
+    telegram: 'https://t.me/fis_bsuir'
   },
   {
     name: 'ИЭФ',
-    inst: '...',
-    telegram: '...'
+    inst: 'https://www.instagram.com/ief_bsuir',
+    telegram: 'https://t.me/ief_bsuir'
   },
   {
     name: 'ФРЭ',
-    inst: '...',
-    telegram: '...'
+    inst: 'https://www.instagram.com/fre_bsuir',
+    telegram: 'https://t.me/fre_bsuir1'
   },
   {
     name: 'ВФ',
-    inst: '...',
-    telegram: '...'
+    inst: 'https://www.instagram.com/vf_bsuir',
+    telegram: 'https://t.me/vfbsuir'
   }
 ]
 
@@ -48,7 +50,7 @@ export const eventPlug: IEvent =  {
   id: 0,
   photo: '',
   title: '',
-  date: new Date(),
+  date: CURRENT_DATE,
   time: '',
   location: '',
   faculties: [],

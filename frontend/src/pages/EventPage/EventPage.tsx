@@ -66,7 +66,7 @@ export const EventPage = () => {
           </div>
           <section className="eventPage__description eventPage__section">
             <h2 className='column-left'>Описание мероприятия</h2>
-            <p dangerouslySetInnerHTML={{ __html: description }}></p>
+            <p className='column-right' dangerouslySetInnerHTML={{ __html: description }}></p>
           </section>
           {visitClass === 'registration' &&
             <section className="eventPage__registration eventPage__section">
@@ -77,7 +77,7 @@ export const EventPage = () => {
           {page === 'past' && results &&
             <section className="eventPage__results eventPage__section">
               <h2 className='column-left'>Результаты мероприятия</h2>
-              <p dangerouslySetInnerHTML={{ __html: results }}></p>
+              <p className='column-right' dangerouslySetInnerHTML={{ __html: results }}></p>
             </section>
           }
           {page === 'past' && archive &&

@@ -1,5 +1,6 @@
 package com.example.Backend.service;
 
+import com.example.Backend.AppConstants;
 import com.example.Backend.Filter;
 import com.example.Backend.entity.EventEntity;
 import com.example.Backend.entity.ReceiverEntity;
@@ -14,7 +15,6 @@ import org.springframework.stereotype.Service;
 import org.w3c.dom.events.EventException;
 
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -70,7 +70,7 @@ public class EventService {
 
     public List<EventEntity> getPastEntity() {
         List<EventEntity> allEvents = (List<EventEntity>) eventRepo.findAll();
-        allEvents.removeIf(event -> event.getDate().after(Date.valueOf(LocalDate.now().minusDays(1))) || event.getDate().before(Date.valueOf(LocalDate.now().minusDays(180))));
+        allEvents.removeIf(event -> event.getDate().after(Date.valueOf(AppConstants.CURRENT_DATE.minusDays(1))) || event.getDate().before(Date.valueOf(AppConstants.CURRENT_DATE.minusDays(180))));
         List<EventEntity> events = this.sortByDate(allEvents);
         Collections.reverse(events);
         return events;
@@ -99,7 +99,7 @@ public class EventService {
     }
 
     public List<EventEntity> getNextEntity() {//Дату берем сами
-        Date currentDate = Date.valueOf(LocalDate.now());//!!!Проверить!!!Работает
+        Date currentDate = Date.valueOf(AppConstants.CURRENT_DATE);
         List<EventEntity> allEvents = (List<EventEntity>) eventRepo.findAll();
         allEvents.removeIf(event -> event.getDate().before(currentDate));//!!!Проверить!!!Работает
         return this.sortByDate(allEvents);

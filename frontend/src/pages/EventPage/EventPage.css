@@ -71,6 +71,9 @@
   min-width: 31.0344827586%;
   margin: 0;
 }
+.column-right {
+  white-space: pre-line;
+}
 
 @media (max-width: 1099.98px) {
   .wrapper .eventPage .eventPage__section h2 {

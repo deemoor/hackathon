@@ -20,7 +20,7 @@ export const ModalMembers = () => {
   return (
   <>
     {Wait(true) &&
-      <ModalTemplate closeModal={closeModal}>
+      <ModalTemplate closeModal={closeModal} positionUp>
         <div className="modalMembers">
           <h2>Список участников</h2>
           {isLoading ? <Loading /> : 

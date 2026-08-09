@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { clearMainMessages, getEventsTopAction, getMainEventsTopSelector, getMainSelector, useAppDispatch, useAppSelector } from 'src/store';
 import { Header, Footer, Newsletter, EventsTop, Notification } from 'src/components';
 import { mainImage } from 'src/assets';
@@ -7,13 +7,25 @@ import './MainPage.css'
 
 export const MainPage = () => {
   const navigate = useNavigate();
+  const { hash, pathname, search } = useLocation();
+
   const dispatch = useAppDispatch();
   const { errorMessage, errorLoadingEventMessage } = useAppSelector(getMainSelector);
   const { eventsNextTop, eventsPastTop } = useAppSelector(getMainEventsTopSelector);
-  
+
   useEffect(() => {
     dispatch(getEventsTopAction());
   }, [])
+
+  useEffect(() => {
+    if (!hash) return;
+
+    document.querySelector(hash)?.scrollIntoView({
+      behavior: 'smooth',
+    });
+
+    navigate(pathname + search, { replace: true });
+  }, [hash])
 
   const clickOpenEventsNext = () => {
     navigate('/next');
@@ -43,7 +55,7 @@ export const MainPage = () => {
         <section className='eventsSection'>
           <EventsTop eventsShow={eventsPastTop} type='past' />
         </section>
-        <section className="mapSection">
+        <section className="mapSection" id="map">
           <h2>Карта корпусов</h2>
           <iframe 
             src="https://yandex.ru/map-widget/v1/?um=constructor%3A8df2e81712e171e182d9da4acd2de8361ccee6c301d8d1e327261d367f98df93&amp;source=constructor" 
