@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { getEventsSelector, setEventsPage, clearEventsMessages, useAppDispatch, useAppSelector } from 'src/store';
-import { Header, Footer, Newsletter, Tabs, Filters, MiniCard, Loading, Wait, Notification } from 'src/components';
+import { Header, Footer, Newsletter, Tabs, Filters, MiniCard, Loading, Wait, Notification, SEO } from 'src/components';
 import { IShortEvent } from 'src/interface'
 import { ActionGetEvents } from 'src/helpers';
 import { EventsPageData } from './config';
@@ -33,6 +33,13 @@ export const EventsPage:FC<IEventsPage> = ({page}) => {
 
   return (
     <>
+      <SEO
+        title={`${titleWord} мероприятия БГУИР`}
+        description={page === 'next'
+          ? 'Ближайшие мероприятия БГУИР: культурные, образовательные и спортивные события университета. Расписание и регистрация.'
+          : 'Прошедшие мероприятия БГУИР: архив событий, фотоотчёты и результаты культурных, образовательных и спортивных мероприятий университета.'}
+        path={`/${page}`}
+      />
       <Header/>
       <div className="wrapper">
         <section className="eventsPage">

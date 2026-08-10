@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { clearEventMessages, getEventAction, getEventItemSelector, getEventSelector, setEventErrorLoading, setMainErrorLoadingEventMessage, useAppDispatch, useAppSelector } from 'src/store';
-import { Header, Footer, Newsletter, IconText, Notification, MembersRegistration, Loading } from 'src/components';
-import { eventPlug, formatDate } from 'src/helpers'
+import { Header, Footer, Newsletter, IconText, Notification, MembersRegistration, Loading, SEO } from 'src/components';
+import { eventPlug, formatDate, stripHtml, truncate, SITE_URL } from 'src/helpers'
 import { calenderIcon, locationIcon, timeIcon, dotsIcon } from 'src/assets';
 import { BackgroundImage, Container } from 'src/styled'
 import { EventPageData } from './config';
@@ -16,6 +16,26 @@ export const EventPage = () => {
   const event = useAppSelector(getEventItemSelector) || eventPlug;
   const { date, description, faculties, location, photo, time, title, type, visit, archive, results, page } = event;
   const { crumbs, visitMessage, visitClass } = EventPageData[page](visit);
+
+  const metaDescription = truncate(
+    stripHtml(description) || `${title} — мероприятие БГУИР.`,
+    160
+  );
+  const eventJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: title,
+    description: metaDescription,
+    startDate: new Date(date).toISOString().slice(0, 10),
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    eventStatus: 'https://schema.org/EventScheduled',
+    image: [photo],
+    organizer: {
+      '@type': 'EducationalOrganization',
+      name: 'Белорусский государственный университет информатики и радиоэлектроники (БГУИР)',
+      url: SITE_URL,
+    },
+  };
 
   useEffect(() => {
     dispatch(getEventAction(+id));
@@ -37,6 +57,14 @@ export const EventPage = () => {
     <Loading isPage />
   ) : (
     <>
+      <SEO
+        title={title}
+        description={metaDescription}
+        path={`/events/${id}`}
+        image={photo}
+        type="article"
+        jsonLd={eventJsonLd}
+      />
       <Header/>
       <div className="wrapper">
         <div className="eventPage">

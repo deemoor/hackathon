@@ -3,6 +3,9 @@ import { getEventsNextAction, getEventsPastAction } from "./store";
 
 export const CURRENT_DATE = new Date(2024, 3, 8);
 
+export const SITE_URL = 'https://bsuir.online';
+export const SITE_NAME = 'БГУИР Мероприятия';
+
 export const allFaculties = ['ФКП', 'ФИТУ', 'ИЭФ', 'ФКСИС', 'ФИБ', 'ФРЭ', 'ВФ'];
 export const allEventsTypes = ['Культурные', 'Образовательные', 'Спортивные'];
 export const allEventsVisits = ['Свободный вход', 'С регистрацией'];
@@ -87,3 +90,9 @@ export const hiddenScrollBar = () => {
   document.body.style.overflowY = 'hidden';
   document.body.style.padding = '0 17px 0 0';
 }
+
+export const stripHtml = (html: string) => html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+
+export const truncate = (text: string, max: number) => (
+  text.length > max ? `${text.slice(0, max - 1).trimEnd()}…` : text
+);

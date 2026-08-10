@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { clearMainMessages, getEventsTopAction, getMainEventsTopSelector, getMainSelector, useAppDispatch, useAppSelector } from 'src/store';
-import { Header, Footer, Newsletter, EventsTop, Notification } from 'src/components';
+import { Header, Footer, Newsletter, EventsTop, Notification, SEO } from 'src/components';
 import { mainImage } from 'src/assets';
 import './MainPage.css'
 
@@ -37,6 +37,11 @@ export const MainPage = () => {
 
   return (
     <>
+      <SEO
+        title="Расписание мероприятий БГУИР"
+        description="Афиша мероприятий БГУИР: культурные, образовательные и спортивные события университета."
+        path="/"
+      />
       <Header/>
       <div className="wrapper">
         <section className="mainSection">

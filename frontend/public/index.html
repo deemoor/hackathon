@@ -1,17 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#263681" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RGHDHP68FB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RGHDHP68FB');
+    </script>
+
+    <title>Расписание мероприятий БГУИР | BSUIR Events</title>
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Афиша мероприятий БГУИР: культурные, образовательные и спортивные события университета."
     />
+    <link rel="canonical" href="https://bsuir.online/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="БГУИР Мероприятия" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:title" content="Расписание мероприятий БГУИР" />
+    <meta property="og:description" content="Афиша мероприятий БГУИР: культурные, образовательные и спортивные события университета." />
+    <meta property="og:url" content="https://bsuir.online/" />
+    <meta property="og:image" content="https://bsuir.online/og-image.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Расписание мероприятий БГУИР" />
+    <meta name="twitter:description" content="Афиша мероприятий БГУИР: культурные, образовательные и спортивные события университета." />
+    <meta name="twitter:image" content="https://bsuir.online/og-image.png" />
+
+    <link rel="preconnect" href="https://api.bsuir.online" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>BSUIR</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Белорусский государственный университет информатики и радиоэлектроники (БГУИР)",
+        "alternateName": "БГУИР",
+        "url": "https://bsuir.online/"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "БГУИР Мероприятия",
+        "url": "https://bsuir.online/",
+        "inLanguage": "ru"
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

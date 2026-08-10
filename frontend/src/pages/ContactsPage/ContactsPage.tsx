@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Header, Footer, Newsletter, ContactCard } from 'src/components';
+import { Header, Footer, Newsletter, ContactCard, SEO } from 'src/components';
 import { IContact } from 'src/interface'
 import { contacts } from 'src/helpers'
 import './ContactsPage.css'
@@ -13,6 +13,11 @@ export const ContactsPage = () => {
 
   return (
     <>
+      <SEO
+        title="Контакты студенческих советов БГУИР"
+        description="Контакты студенческих советов факультетов БГУИР: Instagram и Telegram-каналы ФКП, ФКСИС, ФИТУ, ФИБ, ИЭФ, ФРЭ и ВФ."
+        path="/contacts"
+      />
       <Header/>
       <div className="wrapper">
         <section className="contactsPage">
